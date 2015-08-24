@@ -1,6 +1,6 @@
 #!/bin/sh
 
-token=""
+token="funlzCcUZUUhq2mDlH914FrDaD82lhR3z9Z79WEjRS0apRO3ek6vUgMEm3czjEGH"
 
 declare -a modes=( "shut down" "temperature mode" "motion mode" "sound mode" "complete" )
 
