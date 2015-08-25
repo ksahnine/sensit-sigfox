@@ -1,8 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
-token="funlzCcUZUUhq2mDlH914FrDaD82lhR3z9Z79WEjRS0apRO3ek6vUgMEm3czjEGH"
+token=""
 
 declare -a modes=( "shut down" "temperature mode" "motion mode" "sound mode" "complete" )
+
+function auth() {
+    Email=$1
+    Passwd=`echo -n $2 | openssl dgst -sha1 | cut -d' ' -f2` # SHA1 algorithm
+
+    Auth=`curl -s -X POST -H "Content-Type: application/json" -d "{ \"email\": \"$Email\", \"password\": \"$Passwd\" }" https://api.sensit.io/v1/auth`
+
+    Token=`echo $Auth | jq --raw-output ".data.token"`
+    if [ $Token == "null" ]
+    then
+        echo $Auth | jq --raw-output ".details"
+    else
+        echo $Token
+    fi
+}
 
 function devices() {
     Devices=`curl -X GET -H "Authorization: Bearer $token" https://api.sensit.io/v1/devices 2>/dev/null`
@@ -69,13 +84,6 @@ function usage() {
     typeset -F | sed 's/declare -f/  -/'
 }
 
-# Verification configuration jeton d'acces
-if [ -z "$token" ]
-then
-    echo "Erreur. Editer le script '$0' et renseignez la variable 'token'"
-    exit 1
-fi
-
 # Verification installation jq
 type jq > /dev/null 2>&1
 IsJqInstalled=$?
@@ -84,6 +92,22 @@ then
     echo "Erreur. Installer l'utilitaire 'jq' : pip install jq "
     echo "ou consulter le site [https://stedolan.github.io/jq/download/]"
     exit 2
+fi
+
+# Au moins 1 param obligatoire
+if [ $# -lt 1 ]
+then
+    usage
+    exit 2
+fi
+
+# Verification configuration jeton d'acces
+if [ -z "$token" ] && [ $1 != "auth" ]
+then
+    echo "Erreur. Jeton non renseigné"
+    echo "1. Lancer la commande : $0 auth <email> <password>"
+    echo "2. Editer le script '$0' et renseignez le jeton dans la variable 'token'"
+    exit 1
 fi
 
 eval $@
