@@ -1,0 +1,19 @@
+---
+# ----------------------------------------------------
+# Velib config file
+# ----------------------------------------------------
+
+# Logging level 
+# CRITICAL = 50, ERROR = 40, WARNING = 30, INFO = 20, DEBUG = 10, NOTSET = 0
+logging_level: 10
+
+# Pushbullet configuration
+pushbullet:
+    api: HcP0dywlqiu0dp1NrH6mI3IWAUOB3ZJt
+
+# Address
+#location: 43 rue de Menilmontant, Paris
+location: 29 rue d'Astorg, Paris
+
+# Rayon de recherche (en metres)
+rayon: 250
