@@ -1,0 +1,3 @@
+[submodule "apps/velib-callback/tpp"]
+	path = apps/velib-callback/tpp
+	url = https://github.com/ksahnine/tpp.git
