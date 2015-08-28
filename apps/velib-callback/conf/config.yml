@@ -9,10 +9,9 @@ logging_level: 10
 
 # Pushbullet configuration
 pushbullet:
-    api: HcP0dywlqiu0dp1NrH6mI3IWAUOB3ZJt
+    api: CHANGE-ME
 
 # Address
-#location: 43 rue de Menilmontant, Paris
 location: 29 rue d'Astorg, Paris
 
 # Rayon de recherche (en metres)
