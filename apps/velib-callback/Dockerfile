@@ -1,8 +1,8 @@
 # Build:
-#   docker build -t ksahnine/sensit-velib .
+#   docker build -t ksahnine/rpi-sensit-velib .
 #
 # Run:
-#   docker run -d -p 8000:8000 -v config.yml:/app/conf/config.yml ksahnine/sensit-velib
+#   docker run -d -p 5000:5000 -v ~/config.yml:/app/conf/config.yml ksahnine/rpi-sensit-velib
 #
 # DOCKER_VERSION 1.6
 
