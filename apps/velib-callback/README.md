@@ -4,7 +4,7 @@ Consulter l'article [*Pratique du réseau M2M SIGFOX avec Sens'it et Docker*](ht
 
 ## Docker
 
-[![dockeri.co](http://dockeri.co/image/ksahnine/ratp-rest-api)](https://registry.hub.docker.com/u/ksahnine/rpi-sensit-velib/)
+[![dockeri.co](http://dockeri.co/image/ksahnine/rpi-sensit-velib)](https://registry.hub.docker.com/u/ksahnine/rpi-sensit-velib/)
 
 ### Build
 ```
